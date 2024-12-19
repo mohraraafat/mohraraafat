@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة الملف الشخصي</title>
+    <link rel="stylesheet" href="car.css">
+</head>
+<body>
+    <div class="profile-container">
+        <h1>My Profile</h1>
+
+        <div class="profile-info">
+            <h2>Users Data</h2>
+            <p><b>Name:</b> <?php echo $user['name']; ?></p>
+            <p><b>Email:</b> <?php echo $user['email']; ?></p>
+            <p><b>Phone Number:</b> <?php echo $user['phone']; ?></p>
+        </div>
+
+        <div class="purchase-history">
+            <h2>purchase History</h2>
+            <ul>
+                <?php foreach ($purchases as $purchase): ?>
+                    <li>Product: 
+                        <?php echo $purchase['product_name']; ?> <br>
+                        Date: <?php echo $purchase['date']; ?> <br>
+                        Ptice: <?php echo $purchase['price']; ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+
+        <div class="change-password">
+            <h2> Change Password</h2>
+            <form action="change_password.php" method="POST">
+                <label for="old_password">old password:</label>
+                <input type="password" id="old_password" name="old_password" required><br>
+
+               <br> <label for="new_password">new password:</label>
+                <input type="password" id="new_password" name="new_password" required><br>
+
+               <br><label for="confirm_password">confirm password:</label>
+                <input type="password" id="confirm_password" name="confirm_password" required><br>
+
+                <br><button type="submit">change password</button>
+                
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
